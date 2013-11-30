@@ -1,0 +1,37 @@
+sudo  apt-get  install  mysql-client  mysql-server
+
+sudo mysql_install_db
+
+sudo chown  -R  mysql:mysql  /var/lib/mysql
+
+example: mysql -u root
+
+create database student_courses;
+
+grant all on student_courses.* to linuxgirl@localhost identified by
+'pakistan';
+
+use student_courses;
+
+create table students( reg_no int(4) not null primary key , name varchar
+(25) , batch varchar (25));
+
+
+create table courses (reg_no int(4), semester int (1), course1 varchar (25), course2 
+varchar (25) , foreign key (reg_no) references students(reg_no) on delete cascade);
+
+insert into students values (1275,'Amal Zafar','BSSE-F10-A);
+
+insert into students values (1246,'Basma Tariq','BSSE-F10-A);
+
+insert into students values (1250,'Maryam Farooq','BSSE-F10-A);
+
+insert into courses values (1275 , 7, 'web','sdt');
+
+insert into courses values (1246 , 7, 'web','spm');
+
+insert into courses values (1250 , 7, 'sqa','sdt');
+
+Select * from students;
+
+Select * from courses;
